@@ -1,45 +1,59 @@
-// Declare global variables
 let numRows = 0;
 let numCols = 0;
-let colorSelected; 
+let colorSelected;
 
-// Add a row
-function addR() {
-    alert("Clicked Add Row"); // Replace this line with your code.
-}
-
-// Add a column
-function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
-}
-
-// Remove a row
-function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
-}
-
-// Remove a column
-function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
-}
-
-// Set global variable for selected color
 function selectColor(){
     colorSelected = document.getElementById("selectedColorId").value;
-    console.log(colorSelected);
 }
 
-// Fill all uncolored cells
+function addR() {
+    let grid = document.getElementById("grid");
+    let newRow = grid.insertRow(-1);
+    for(let i=0; i<numCols; i++) {
+        let newCell = newRow.insertCell(i);
+        newCell.onclick = function() { alert('Clicked a table cell'); };
+    }
+    numRows++;
+}
+
+function addC() {
+    let grid = document.getElementById("grid");
+    if(numRows === 0) {
+        addR();
+    }
+    for(let i=0; i<numRows; i++) {
+        let newCell = grid.rows[i].insertCell(numCols);
+        newCell.onclick = function() { alert('Clicked a table cell'); };
+    }
+    numCols++;
+}
+
+function removeR() {
+    let grid = document.getElementById("grid");
+    if(numRows > 0) {
+        grid.deleteRow(-1);
+        numRows--;
+    }
+}
+
+function removeC() {
+    let grid = document.getElementById("grid");
+    if(numCols > 0) {
+        for(let i=0; i<numRows; i++) {
+            grid.rows[i].deleteCell(numCols-1);
+        }
+        numCols--;
+    }
+}
+
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    alert("Clicked Fill All Uncolored"); 
 }
 
-// Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+    alert("Clicked Fill All"); 
 }
 
-// Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+    alert("Clicked Clear All"); 
 }
