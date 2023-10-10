@@ -60,5 +60,11 @@ function fillAll(){
 }
 
 function clearAll(){
-    alert("Clicked Clear All"); 
+    gridTable = document.getElementById("grid");
+    // Get all the cells in the table
+    cells = gridTable.getElementsByTagName("td");
+    // Reset the background color of all cells
+    for (let i = 0; i < cells.length; i++) {
+        cells[i].style.backgroundColor = ""; // by setting to default
+}
 }
