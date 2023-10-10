@@ -4,6 +4,13 @@ let colorSelected;
 
 function selectColor(){
     colorSelected = document.getElementById("selectedColorId").value;
+    gridTable = document.getElementById("grid"); //gets the table
+    gridTable.addEventListener("click", function(event) { //check if there is a click on the table
+        if (event.target.tagName === "TD" && colorSelected != "SELECT"){  //check to see if there is a click on any of the table cells and make sure there is a selected color
+            event.target.style.backgroundColor = colorSelected; //if there is a selected color, change the color of the cell to that color
+        }
+    }
+    );
 }
 
 function addR() {
@@ -11,7 +18,6 @@ function addR() {
     let newRow = grid.insertRow(-1);
     for(let i=0; i<numCols; i++) {
         let newCell = newRow.insertCell(i);
-        newCell.onclick = function() { alert('Clicked a table cell'); };
     }
     numRows++;
 }
@@ -23,7 +29,6 @@ function addC() {
     }
     for(let i=0; i<numRows; i++) {
         let newCell = grid.rows[i].insertCell(numCols);
-        newCell.onclick = function() { alert('Clicked a table cell'); };
     }
     numCols++;
 }
@@ -55,5 +60,11 @@ function fillAll(){
 }
 
 function clearAll(){
-    alert("Clicked Clear All"); 
+    gridTable = document.getElementById("grid");
+    // Get all the cells in the table
+    cells = gridTable.getElementsByTagName("td");
+    // Reset the background color of all cells
+    for (let i = 0; i < cells.length; i++) {
+        cells[i].style.backgroundColor = ""; // by setting to default
+}
 }
