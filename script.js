@@ -51,12 +51,24 @@ function removeC() {
     }
 }
 
-function fillU(){
-    alert("Clicked Fill All Uncolored"); 
+function fillUncolored() {
+    colorSelected = document.getElementById("selectedColorId").value;
+    gridTable = document.getElementById("grid");
+    cells = gridTable.getElementsByTagName("td");
+    for (let i = 0; i < cells.length; i++) {
+        if (cells[i].style.backgroundColor === "" || cells[i].style.backgroundColor === "white") {
+                cells[i].style.backgroundColor = colorSelected; 
+        }
+    }
 }
 
 function fillAll(){
-    alert("Clicked Fill All"); 
+    colorSelected = document.getElementById("selectedColorId").value;
+    gridTable = document.getElementById("grid");
+    cells = gridTable.getElementsByTagName("td");
+    for (let i = 0; i < cells.length; i++) {
+        cells[i].style.backgroundColor = colorSelected;
+    }
 }
 
 function clearAll(){
@@ -68,3 +80,4 @@ function clearAll(){
         cells[i].style.backgroundColor = ""; // by setting to default
 }
 }
+
