@@ -1,7 +1,2 @@
 # Grid-Maker
-# Group Members: Tashfiah Zaman, Hamza Algamoos, Justin Chen, Bodrul Jalal
-# Github Usernames:
-# tashfiahzaman (Tashfiah Zaman)
-# Halgamoos (Hamza Algamoos)
-# BodrulJalal (Bodrul Jalal)
-# Justin 5802 (Justin Chu)
+# Group Members: Tashfiah Zaman (tashfiahzaman), Hamza Algamoos (Halgamoos), Justin Chen (Justin5802) , Bodrul Jalal (BodrulJalal)
